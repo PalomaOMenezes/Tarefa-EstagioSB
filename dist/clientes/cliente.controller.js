@@ -68,6 +68,7 @@ __decorate([
     __metadata("design:returntype", Promise)
 ], ClienteController.prototype, "cadastrar", null);
 __decorate([
+    (0, common_1.UseGuards)((0, passport_1.AuthGuard)('jwt')),
     (0, common_1.Get)(),
     __param(0, (0, common_1.Query)('pagina')),
     __param(1, (0, common_1.Query)('limite')),
@@ -77,12 +78,14 @@ __decorate([
     __metadata("design:returntype", Promise)
 ], ClienteController.prototype, "listar", null);
 __decorate([
+    (0, common_1.UseGuards)((0, passport_1.AuthGuard)('jwt')),
     (0, common_1.Get)('historico'),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", []),
     __metadata("design:returntype", Object)
 ], ClienteController.prototype, "obterHistorico", null);
 __decorate([
+    (0, common_1.UseGuards)((0, passport_1.AuthGuard)('jwt')),
     (0, common_1.Patch)(':id'),
     __param(0, (0, common_1.Param)('id')),
     __param(1, (0, common_1.Body)()),
@@ -91,6 +94,7 @@ __decorate([
     __metadata("design:returntype", Promise)
 ], ClienteController.prototype, "editar", null);
 __decorate([
+    (0, common_1.UseGuards)((0, passport_1.AuthGuard)('jwt')),
     (0, common_1.Delete)(':id'),
     (0, common_1.HttpCode)(common_1.HttpStatus.NO_CONTENT),
     __param(0, (0, common_1.Param)('id')),
@@ -99,7 +103,6 @@ __decorate([
     __metadata("design:returntype", Promise)
 ], ClienteController.prototype, "excluir", null);
 exports.ClienteController = ClienteController = __decorate([
-    (0, common_1.UseGuards)((0, passport_1.AuthGuard)('jwt')),
     (0, common_1.Controller)('clientes'),
     __metadata("design:paramtypes", [cliente_service_1.ClienteService])
 ], ClienteController);

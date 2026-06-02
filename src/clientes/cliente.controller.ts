@@ -7,7 +7,7 @@ import { EditarClienteDto } from "./dto/editar.cliente.dto";
 import { LoginDto } from '../auth/dto';
 import {AuthGuard} from '@nestjs/passport';
 
-@UseGuards(AuthGuard('jwt'))
+
 @Controller('clientes')
 export class ClienteController{
 
@@ -23,6 +23,7 @@ export class ClienteController{
         };
     }
 
+    @UseGuards(AuthGuard('jwt'))
     @Get()
     async listar(
         @Query('pagina') pagina = '1',
@@ -37,6 +38,7 @@ export class ClienteController{
         };
     }
 
+    @UseGuards(AuthGuard('jwt'))
     @Get('historico')
     obterHistorico(): ApiResponse<string[]>{
         const historico = this.clienteService.obterHistorico();
@@ -47,6 +49,7 @@ export class ClienteController{
         };
     }
 
+    @UseGuards(AuthGuard('jwt'))
     @Patch(':id')
     async editar(
         @Param('id') id: string,
@@ -60,6 +63,7 @@ export class ClienteController{
         };
     }
 
+    @UseGuards(AuthGuard('jwt'))
     @Delete(':id')
     @HttpCode(HttpStatus.NO_CONTENT)
     async excluir(@Param('id')id: string): Promise<void>{
